@@ -1,0 +1,16 @@
+{
+  "screen.better_camera.warning.title": "WARNING",
+  "screen.better_camera.warning.line1": "Ctrl Lock can be detected as an exploit on some servers and lead to a BAN!",
+  "screen.better_camera.warning.line2": "Please use it with caution.",
+  "screen.better_camera.warning.accept": "I Accept (Keep Ctrl Lock Enabled)",
+  "screen.better_camera.warning.disable": "Disable Ctrl Lock & Play",
+  "screen.better_camera.settings.title": "Better Camera Settings",
+  "screen.better_camera.settings.first_person_zoom": "First-Person Scroll Zoom: %s",
+  "screen.better_camera.settings.transitions": "Transitions & Smoothness: %s",
+  "screen.better_camera.settings.ctrl_lock": "Ctrl Lock Ability: %s",
+  "screen.better_camera.settings.done": "Done",
+  "screen.better_camera.settings.hud_sway": "HUD Camera Sway: %d%%",
+  "screen.better_camera.settings.on": "ON",
+  "screen.better_camera.settings.off": "OFF",
+  "options.better_camera.button": "Better Camera..."
+}

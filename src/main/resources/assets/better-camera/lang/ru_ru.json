@@ -1,0 +1,16 @@
+{
+  "screen.better_camera.warning.title": "ВНИМАНИЕ",
+  "screen.better_camera.warning.line1": "Использование Ctrl Lock может привести к БАНУ на некоторых серверах!",
+  "screen.better_camera.warning.line2": "Пожалуйста, используйте его с осторожностью.",
+  "screen.better_camera.warning.accept": "Я принимаю риск (Оставить Ctrl Lock)",
+  "screen.better_camera.warning.disable": "Отключить Ctrl Lock и играть",
+  "screen.better_camera.settings.title": "Настройки Better Camera",
+  "screen.better_camera.settings.first_person_zoom": "Зум от первого лица: %s",
+  "screen.better_camera.settings.transitions": "Плавность и переходы: %s",
+  "screen.better_camera.settings.ctrl_lock": "Возможность Ctrl Lock: %s",
+  "screen.better_camera.settings.done": "Готово",
+  "screen.better_camera.settings.hud_sway": "Колыхание интерфейса: %d%%",
+  "screen.better_camera.settings.on": "ВКЛ",
+  "screen.better_camera.settings.off": "ВЫКЛ",
+  "options.better_camera.button": "Камера..."
+}
