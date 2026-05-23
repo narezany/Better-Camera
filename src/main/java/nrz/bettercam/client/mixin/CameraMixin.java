@@ -4,7 +4,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.Perspective;
 import net.minecraft.client.render.Camera;
 import net.minecraft.entity.Entity;
-import net.minecraft.world.World;
+import net.minecraft.world.BlockView;
 import nrz.bettercam.client.CameraState;
 import nrz.bettercam.client.CameraZoomState;
 import org.joml.Quaternionf;
@@ -34,7 +34,7 @@ public abstract class CameraMixin {
     @Shadow @Final private static Vector3f DIAGONAL;
 
     @Inject(method = "update", at = @At("HEAD"))
-    private void onUpdateHead(World area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
+    private void onUpdateHead(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
         if (thirdPerson && !inverseView) { // THIRD_PERSON_BACK
             if (!CameraState.initialized) {
                 CameraState.initialize();
@@ -82,7 +82,7 @@ public abstract class CameraMixin {
     }
 
     @Inject(method = "update", at = @At("TAIL"))
-    private void onUpdateTail(World area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
+    private void onUpdateTail(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.options.getPerspective() == Perspective.FIRST_PERSON) {
             this.thirdPerson = false;
