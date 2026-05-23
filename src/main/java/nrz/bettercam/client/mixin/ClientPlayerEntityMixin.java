@@ -34,10 +34,6 @@ public abstract class ClientPlayerEntityMixin {
         return null;
     }
 
-    @Unique private float savedYaw;
-    @Unique private float savedPitch;
-    @Unique private float savedLastYaw;
-    @Unique private float savedLastPitch;
 
     @Inject(method = "tickMovementInput", at = @At("HEAD"), cancellable = true)
     private void onTickMovementInput(CallbackInfo ci) {
@@ -142,98 +138,6 @@ public abstract class ClientPlayerEntityMixin {
             }
             
             ci.cancel();
-        }
-    }
-
-    @Unique
-    private HitResult raycastFromCamera(MinecraftClient client, Entity cameraEntity, double maxDistance, float tickProgress, boolean includeFluids) {
-        Vec3d cameraPos = client.gameRenderer.getCamera().getCameraPos();
-        Vec3d rotationVec = cameraEntity.getRotationVector(CameraState.cameraPitch, CameraState.cameraYaw);
-        Vec3d targetPos = cameraPos.add(rotationVec.x * maxDistance, rotationVec.y * maxDistance, rotationVec.z * maxDistance);
-        
-        return cameraEntity.getEntityWorld().raycast(
-            new RaycastContext(
-                cameraPos,
-                targetPos,
-                RaycastContext.ShapeType.OUTLINE,
-                includeFluids ? RaycastContext.FluidHandling.ANY : RaycastContext.FluidHandling.NONE,
-                cameraEntity
-            )
-        );
-    }
-
-    @Inject(method = "getCrosshairTarget", at = @At("HEAD"), cancellable = true)
-    private void onGetCrosshairTargetHead(float tickProgress, Entity cameraEntity, CallbackInfoReturnable<HitResult> cir) {
-        ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
-        MinecraftClient client = MinecraftClient.getInstance();
-        if (client.options.getPerspective() == Perspective.THIRD_PERSON_BACK) {
-            if (CameraState.shiftLock) {
-                double blockInteractionRange = player.getBlockInteractionRange();
-                double entityInteractionRange = player.getEntityInteractionRange();
-                
-                double reach = Math.max(blockInteractionRange, entityInteractionRange);
-                Vec3d cameraPos = client.gameRenderer.getCamera().getCameraPos();
-                Vec3d playerEyePos = player.getCameraPosVec(tickProgress);
-                double camToPlayerDist = cameraPos.distanceTo(playerEyePos);
-                double maxDistance = camToPlayerDist + reach;
-                
-                HitResult blockHitResult = raycastFromCamera(client, cameraEntity, maxDistance, tickProgress, false);
-                
-                double entityRaycastLimit = maxDistance;
-                if (blockHitResult.getType() != HitResult.Type.MISS) {
-                    entityRaycastLimit = blockHitResult.getPos().distanceTo(cameraPos);
-                }
-                
-                Vec3d rotationVec = cameraEntity.getRotationVector(CameraState.cameraPitch, CameraState.cameraYaw);
-                Vec3d targetPos = cameraPos.add(rotationVec.x * entityRaycastLimit, rotationVec.y * entityRaycastLimit, rotationVec.z * entityRaycastLimit);
-                Box box = cameraEntity.getBoundingBox().stretch(rotationVec.multiply(entityRaycastLimit)).expand(1.0, 1.0, 1.0);
-                
-                EntityHitResult entityHitResult = ProjectileUtil.raycast(cameraEntity, cameraPos, targetPos, box, EntityPredicates.CAN_HIT, entityRaycastLimit * entityRaycastLimit);
-                
-                if (entityHitResult != null) {
-                    double entityDistToPlayer = entityHitResult.getPos().distanceTo(playerEyePos);
-                    if (entityDistToPlayer <= entityInteractionRange) {
-                        cir.setReturnValue(entityHitResult);
-                        return;
-                    }
-                }
-                
-                if (blockHitResult.getType() != HitResult.Type.MISS) {
-                    double blockDistToPlayer = blockHitResult.getPos().distanceTo(playerEyePos);
-                    if (blockDistToPlayer <= blockInteractionRange) {
-                        cir.setReturnValue(blockHitResult);
-                        return;
-                    }
-                }
-                
-                // Return a clean missed result if nothing was in reach
-                Vec3d missPos = cameraPos.add(rotationVec.multiply(maxDistance));
-                cir.setReturnValue(BlockHitResult.createMissed(missPos, Direction.UP, BlockPos.ofFloored(missPos)));
-                return;
-            }
-
-            this.savedYaw = player.getYaw();
-            this.savedPitch = player.getPitch();
-            this.savedLastYaw = player.lastYaw;
-            this.savedLastPitch = player.lastPitch;
-            
-            player.setYaw(CameraState.cameraYaw);
-            player.setPitch(CameraState.cameraPitch);
-            player.lastYaw = CameraState.cameraYaw;
-            player.lastPitch = CameraState.cameraPitch;
-        }
-    }
-
-    @Inject(method = "getCrosshairTarget", at = @At("RETURN"))
-    private void onGetCrosshairTargetReturn(float tickProgress, Entity cameraEntity, CallbackInfoReturnable<HitResult> cir) {
-        ClientPlayerEntity player = (ClientPlayerEntity) (Object) this;
-        MinecraftClient client = MinecraftClient.getInstance();
-        if (client.options.getPerspective() == Perspective.THIRD_PERSON_BACK) {
-            if (CameraState.shiftLock) return;
-            player.setYaw(this.savedYaw);
-            player.setPitch(this.savedPitch);
-            player.lastYaw = this.savedLastYaw;
-            player.lastPitch = this.savedLastPitch;
         }
     }
 }

@@ -9,6 +9,7 @@
 		"CameraMixin",
 		"ClientPlayerEntityMixin",
 		"GameOptionsMixin",
+		"GameRendererMixin",
 		"LivingEntityAccessor",
 		"KeyboardMixin",
 		"InGameHudMixin",
