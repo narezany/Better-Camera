@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "better-camera",
+	"version": "${version}",
+	"name": "Better Camera",
+	"description": "Roblox-style camera system for Minecraft with a custom 3rd person orbit camera, smooth scroll zoom, and Shift Lock mode. Discord Narezany Mods: https://discord.gg/DYENTdNR76",
+	"authors": [
+		"narezany"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/better-camera",
+		"sources": "https://discord.gg/DYENTdNR76",
+		"discord": "https://discord.gg/DYENTdNR76"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/better-camera/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"nrz.bettercam.BetterCamera"
+		],
+		"client": [
+			"nrz.bettercam.client.BetterCameraClient"
+		]
+	},
+	"mixins": [
+		"better-camera.mixins.json",
+		{
+			"config": "better-camera.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
