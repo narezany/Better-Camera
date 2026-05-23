@@ -1,0 +1,68 @@
+Initialized native services in: /home/narezany/.gradle/native
+Initialized jansi services in: /home/narezany/.gradle/native
+The client will now receive all logging from the daemon (pid: 9154). The daemon log file: /home/narezany/.gradle/daemon/9.4.1/daemon-9154.out.log
+Starting 9th build in daemon [uptime: 14 mins 5.604 secs, performance: 97%, GC rate: 0.01/s, heap usage: 53% of 1 GiB]
+Using 16 worker leases.
+Operational build model parameters: {cachingModelBuilding=false, configurationCache=false, configurationCacheDisabledReason=null, configurationCacheParallelLoad=false, configurationCacheParallelStore=false, configureOnDemand=false, invalidateCoupledProjects=false, isolatedProjects=false, modelAsProjectDependency=false, modelBuilding=false, parallelModelBuilding=false, parallelProjectConfiguration=false, parallelProjectExecution=true, resilientModelBuilding=false}
+Now considering [/home/narezany/Projects/better-camera] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file '/home/narezany/Projects/better-camera/settings.gradle'.
+Projects loaded. Root project using build file '/home/narezany/Projects/better-camera/build.gradle'.
+Included projects: [root project 'better-camera']
+
+> Configure project :
+Evaluating root project 'better-camera' using build file '/home/narezany/Projects/better-camera/build.gradle'.
+Resolved plugin [id: 'net.fabricmc.fabric-loom-remap', version: '1.16-SNAPSHOT']
+Resolved plugin [id: 'maven-publish']
+Fabric Loom: 1.16.2
+(kotlin.metadata.jvm.KotlinClassMetadata) with version (2.3.0-release-356) was loaded from (/home/narezany/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-metadata-jvm/2.3.0/7758780509972cf8338f06649cc5e4b11acc14e/kotlin-metadata-jvm-2.3.0.jar)
+(org.objectweb.asm.ClassVisitor) with version (9.9) was loaded from (/home/narezany/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.9/c29635c8a7afa03d74b33c1884df8abb2b3f3dcc/asm-9.9.jar)
+(org.objectweb.asm.tree.analysis.Analyzer) with version (9.9) was loaded from (/home/narezany/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.9/bf4fa6e66638851c1cd22c2caea0c3ee5d5f437/asm-analysis-9.9.jar)
+(org.objectweb.asm.commons.ClassRemapper) with version (9.9) was loaded from (/home/narezany/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.9/db9165a3bf908ded6b08612d583a15d1d0c7bda0/asm-commons-9.9.jar)
+(org.objectweb.asm.tree.ClassNode) with version (9.9) was loaded from (/home/narezany/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.9/f8de6eead6d24dd0f45bd065bbe112b2cda6ea21/asm-tree-9.9.jar)
+(org.objectweb.asm.util.ASMifier) with version (9.9) was loaded from (/home/narezany/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.9/42fdfc0508b43807c8078d6e82ecff2ce2112ae8/asm-util-9.9.jar)
+(com.google.gson.Gson) with version (null) was loaded from (/home/narezany/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar)
+Using cached Minecraft jars
+:Extracting server jar from bootstrap
+Mod dependency options: {"__inlineRefmap__":false,"__mappings__":"net.fabricmc.yarn.1_21_11.1.21.11+build.5-v2"}
+Applying installer data from /home/narezany/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.19.2/cc647a5b22dbc49b9a3267cebcee25fc4882b108/fabric-loader-0.19.2.jar
+Found another installer JSON in (/home/narezany/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.19.2/cc647a5b22dbc49b9a3267cebcee25fc4882b108/fabric-loader-0.19.2.jar), ignoring
+All projects evaluated.
+Task name matched 'clean'
+Task name matched 'compileJava'
+Selected primary task 'clean' from project :
+Selected primary task 'compileJava' from project :
+Tasks to be executed: [task ':clean', task ':compileJava']
+Tasks that were excluded: []
+Resolve mutations for :clean (Thread[#12996,Execution worker,5,main]) started.
+:clean (Thread[#13004,Execution worker Thread 9,5,main]) started.
+destroyer locations for task group 0 (Thread[#13005,Execution worker Thread 10,5,main]) started.
+
+> Task :clean
+Caching disabled for task ':clean' because:
+  Build cache is disabled
+Task ':clean' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :compileJava (Thread[#13004,Execution worker Thread 9,5,main]) started.
+:compileJava (Thread[#13004,Execution worker Thread 9,5,main]) started.
+
+> Task :compileJava
+Caching disabled for task ':compileJava' because:
+  Build cache is disabled
+Task ':compileJava' is not up-to-date because:
+  Output property 'destinationDirectory' file /home/narezany/Projects/better-camera/build/classes/java/main has been removed.
+  Output property 'destinationDirectory' file /home/narezany/Projects/better-camera/build/classes/java/main/nrz has been removed.
+  Output property 'destinationDirectory' file /home/narezany/Projects/better-camera/build/classes/java/main/nrz/bettercam has been removed.
+  and more...
+The input changes require a full rebuild for incremental task ':compileJava'.
+Compilation mode: in-process compilation
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain '/usr/lib/jvm/java-21-openjdk-amd64'.
+Compiling with JDK Java compiler API.
+Class dependency analysis for incremental compilation took 0.0 secs.
+Created classpath snapshot for incremental compilation in 0.016 secs.
+
+BUILD SUCCESSFUL in 725ms
+2 actionable tasks: 2 executed
