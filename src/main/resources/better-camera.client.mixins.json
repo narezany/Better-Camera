@@ -1,0 +1,29 @@
+{
+	"required": true,
+	"package": "nrz.bettercam.client.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"refmap": "better-camera-refmap.json",
+	"client": [
+		"PerspectiveMixin",
+		"MouseMixin",
+		"CameraMixin",
+		"ClientPlayerEntityMixin",
+		"GameOptionsMixin",
+		"LivingEntityAccessor",
+		"KeyboardMixin",
+		"InGameHudMixin",
+		"LivingEntityRendererMixin",
+		"ModelMixin",
+		"PlayerEntityModelMixin",
+		"OptionsScreenMixin",
+		"MinecraftClientMixin",
+		"ScreenAccessor",
+		"GameRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
