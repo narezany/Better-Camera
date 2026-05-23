@@ -2,6 +2,8 @@
 
 Better Camera is a Minecraft Fabric mod that overhauls the third-person camera perspective to function similarly to Roblox, featuring an over-the-shoulder Shift Lock mode, custom crosshair rendering, and smooth scroll zoom.
 
+# You can find [downloadable mod here](https://modrinth.com/mod/better-camera) (click)
+
 This branch contains the source code for **Minecraft 26.1**.
 
 ## Features
